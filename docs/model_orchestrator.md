@@ -20,6 +20,7 @@ The method operates within the **Model Orchestration** stage of the GenAI pipeli
 
 ---
 
+![Workflow Diagram](./images/WorkFlow.webp)
 
 
 ## **Workflow Integration**
