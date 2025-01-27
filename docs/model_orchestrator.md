@@ -5,22 +5,50 @@ The `model_orchestrate` method is part of an advanced AI agent designed to dynam
 
 ---
 
+
 ## **Core Concept**
-The `model_orchestrate` method processes a `Session` object containing the following information:
+The `model_orchestrate` method is integrated into a GenAI pipeline that interacts with various components as illustrated in the workflow diagram. The pipeline processes a `Session` object containing:
 - **original_prompt**: The unaltered input from the user.
 - **formed_prompt**: A refined version of the original prompt, shaped by prior workflows.
 - **workflow_id**: Identifier for the workflow applied to the session.
 
-The method:
-1. Defines the **target model** to call based on:
+The method operates within the **Model Orchestration** stage of the GenAI pipeline and:
+1. Selects the **target model** based on:
    - A **Model Repository** (metadata about available models and prior interactions).
-   - Workflow rules that may specify `target_model`, `suggested_models`, or `expected_model`.
-2. Orchestrates execution, ensuring cost-efficiency, low latency, and adherence to accuracy requirements.
+   - Workflow rules specified in **Model Orchestration Rules**.
+2. Executes the model, ensuring cost-efficiency, low latency, and adherence to accuracy requirements.
+
+---
+
+
+
+## **Workflow Integration**
+
+The workflow integrates the following key components:
+
+1. **Interface**:
+   - Includes the WebUI and chatbot components where user prompts originate.
+   - Passes user inputs (P) into the GenAI pipeline and receives responses (R).
+
+2. **GenAI Pipeline**:
+   - Composed of three stages:
+     - **Workflow Select**: Determines the appropriate workflow template based on the user input.
+     - **Workflow Execute**: Executes the selected workflow, preparing inputs for model orchestration.
+     - **Model Orchestration**: Dynamically selects and invokes the optimal model for execution.
+
+3. **Model Orchestration Rules**:
+   - Define how models are selected based on cost, latency, and accuracy constraints.
+
+4. **Artifacts and Databases**:
+   - Contain reusable components and data required for workflows and model execution.
+
+5. **Orchestration**:
+   - Manages high-level operations, ensuring smooth communication between components.
 
 ---
 
 ## **Workflow Rules**
-The system uses a structured set of rules to determine which model to execute. These rules follow a hierarchical decision-making process:
+The system uses a structured set of rules within the **Model Orchestration** stage to determine which model to execute. These rules follow a hierarchical decision-making process:
 
 ### **Rule 1: Target Model**
 If a `target_model` is specified in the workflow:
