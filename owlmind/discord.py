@@ -83,9 +83,8 @@ class DiscordBot(discord.Client):
         text = re.sub(r"<@\d+>", "", message.content,).strip()
 
         # Collect attachments, reactions and others.
-        # @HERE TODO collect attachments, reactions, etc
-        attachments = None
-        reactions = None
+        attachments = [attachment.url for attachment in message.attachments] if message.attachments else None
+        reactions = [str(reaction.emoji) for reaction in message.reactions] if message.reactions else None
 
         # Create context
         context = BotMessage(
@@ -109,12 +108,15 @@ class DiscordBot(discord.Client):
             self.brain.process(context)
 
         # If the immediate processing of Context generated a result (sync mode), return it through the bot interface
-        # @HERE TODO return attachements, issue reactions, etc
         if context.response:
             await message.channel.send(context.response)
+            if context.attachments:
+                for attachment in context.attachments:
+                    await message.channel.send(attachment)
+            if context.reactions:
+                for reaction in context.reactions:
+                    await message.add_reaction(reaction)
         return
 
     def run(self):
         super().run(self.token)
-
-
