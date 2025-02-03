@@ -3,6 +3,7 @@ import pytest
 
 pytestmark = pytest.mark.unit
 
+
 def test__addition_overload():
     ctx = Context({"key": "value"})
     ctx += {"new_key": "new_value"}
@@ -23,18 +24,24 @@ def test_contains_overload_returns_true_on_exact_match():
 
     assert ctx_two in ctx
 
-@pytest.mark.parametrize("wildcard", ['*', '_'])
+
+@pytest.mark.parametrize("wildcard", ["*", "_"])
 def test_contains_overload_returns_true_on_wildcard_match(wildcard: str):
     ctx = Context({"key": "value"})
     ctx_two = Context({"key": wildcard})
 
     assert ctx_two in ctx
 
-@pytest.mark.parametrize("pattern, target, expected", [
-    ("r/value","value", True),
-    ("r/value/", "value", True),
-    ("r/value", "owlmind", False)])
-def test_contains_overload_returns_correct_value_on_regex(pattern, target,expected):
+
+@pytest.mark.parametrize(
+    "pattern, target, expected",
+    [
+        ("r/value", "value", True),
+        ("r/value/", "value", True),
+        ("r/value", "owlmind", False),
+    ],
+)
+def test_contains_overload_returns_correct_value_on_regex(pattern, target, expected):
     ctx = Context({"key": target})
     ctx_two = Context({"key": pattern})
 
