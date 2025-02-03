@@ -107,12 +107,14 @@ class Context(dict):
         - Regex-matching for r/regex/
         - Match-score increases the more content is matched
         """
+        # TODO : Overall I think the logic here is very bloated for what it's trying to do, and I'm fairly certain
+        # this entire method could be refactored to be both more readable and concise. 
 
         # CUT-SHORT conditions
-        test.result = None
         if not test or not isinstance(test, Context):
             if Context.DEBUG: print(f'WARNING: Context.__contains__, test must be Context: {type(test)}')
             return False
+        test.result = None
 
         # Processing
         match_score = 0.0
@@ -127,6 +129,7 @@ class Context(dict):
                 local_score = Context.MAX_CLAUSE 
                 target = self[key] if Context.CASE_SENSITIVE else self[key].lower()
                 value_str = isinstance(value, str)
+                # why bother checking if the type is a string, if you're just going to call a string method on it anyways?
                 value = value if value_str and Context.CASE_SENSITIVE else value.lower()
 
                 # (2) Process context-match
@@ -153,8 +156,9 @@ class Context(dict):
 
                 # (2.4) regex matching with r/regex/
                 elif value_str and value.startswith('r/'): 
-                    pattern = value[2:-1] if value.endswith('/') else value[2:0] 
+                    pattern = value[2:-1] if value.endswith('/') else value[2:] 
                     try:
+                        # TODO : I'm almost certain fullmatch() isn't the method we want to use here for partial matching with regex as fullmatch needs to match the entire target.
                         if re.fullmatch(pattern, str(target)):
                             # @NOTE arbitrary value for regex-matching
                             local_score += 0.75 
@@ -174,6 +178,7 @@ class Context(dict):
                 break
         ## For-loop-else will happen in case Context-match was not CUT
         ## note: this proves the initial belief to be false
+        # TODO : Remove for-else construct, this is not idiomatic python, use flags instead
         else: 
             cut = False 
 

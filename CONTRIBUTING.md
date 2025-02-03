@@ -51,7 +51,6 @@ python -m venv venv
 
 ```bash
 python -m pip install -r requirements.txt
-python -m pip install -e .
 hash -r  # This resets shell PATH cache, not necessary on Windows
 ```
 
@@ -132,7 +131,7 @@ erases context during review. We will squash commits when the pull request is me
 
 Core developers should follow these rules when processing pull requests:
 
-* Always wait for tests to pass before merging PRs.
+* Always wait for tests to pass before merging PRs. 
 * Use "[Squash and merge](https://github.com/blog/2141-squash-your-commits)"
   to merge PRs.
 * Delete branches for merged PRs (by core devs pushing to the main repo).
