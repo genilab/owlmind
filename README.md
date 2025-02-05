@@ -117,10 +117,8 @@ python -m pip install --break-system-packages -r requirements.txt
 ### Run Unit/Integration Tests
 After installing dev requirements
 ```bash
-python -m pytest -vm unit
+python -m pytest -vm unit --cov=owlmind --cov-report=term-missing
 ```
-
-
 ### 3. Animate your Discord Bot with an OwlMind BotBrain
 
 

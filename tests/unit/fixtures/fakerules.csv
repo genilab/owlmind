@@ -1,0 +1,18 @@
+##
+## Fake Rules for SimpleBrain
+#
+# 
+# 
+#
+
+message,response
+*hello*, Hi there! How can I assist you today?
+*hi*, Hello! What can I help you with?
+*hey*, Hey there! How's it going?
+*good morning*, Good morning! How can I make your day better?
+*good afternoon*, Good afternoon! How may I help you?
+*good evening*, Good evening! What brings you here?
+*sup*, Not much, just here to help! What about you?
+*howdy*, Howdy! What can I do for you?
+*hi there*, Hi there! Need assistance?
+*hey there*, Hey there! How can I help you?

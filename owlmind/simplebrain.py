@@ -75,10 +75,9 @@ class SimpleBrain(BotBrain):
             with open(file_name, mode='r', encoding='utf-8') as file:
                 reader = csv.DictReader((row for row in file if row.strip() and not row.strip().startswith('#')), escapechar='\\')
                 for row in reader:
-                    condition = {key.strip(): value.strip() for key, value in row.items() if key and value and key.strip().lower() != 'response'}
-                    response = row.get(next((k for k in row.keys() if k.strip().lower() == 'response'), ''), '').strip()
+                    condition = {"message" : row["message"].strip()}
+                    response = row["response"].strip()
                     self += Plan(condition=condition, action=response)
-                    row_count += 1
         except FileNotFoundError:
             if self.debug: print(f'SimpleBrain.load(.): ERROR, file {file_name} not found.')
 

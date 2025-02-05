@@ -1,4 +1,4 @@
-from context import Context
+from owlmind.context import Context
 import pytest
 
 pytestmark = pytest.mark.unit
@@ -17,6 +17,7 @@ def test_contains_overload_returns_false_on_non_context_type():
     test = {"key": "value"}
 
     assert test not in ctx
+
 
 def test_contains_overload_returns_true_on_exact_match():
     ctx = Context({"key": "value"})
