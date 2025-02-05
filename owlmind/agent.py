@@ -25,7 +25,7 @@
 # 
 
 from collections import deque
-from owlmind.context import Context, ContextRecord, ContextRepo
+from .context import Context, ContextRecord, ContextRepo
 
 class Belief(Context):
     def __init__(self, facts):
