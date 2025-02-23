@@ -19,6 +19,7 @@ def test_load():
     ctx = Context({"message": "hello"})
     ctx2 = Context({"message": "good morning"})
 
+
     # this context is not in the fake rules
     ctx3 = Context({"message": "Where is the bathroom?"})
 

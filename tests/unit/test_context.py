@@ -12,12 +12,12 @@ def test__addition_overload():
     assert ctx["new_key"] == "new_value"
 
 
+
 def test_contains_overload_returns_false_on_non_context_type():
     ctx = Context({"key": "value"})
     test = {"key": "value"}
 
     assert test not in ctx
-
 
 def test_contains_overload_returns_true_on_exact_match():
     ctx = Context({"key": "value"})
@@ -32,7 +32,6 @@ def test_contains_overload_returns_true_on_wildcard_match(wildcard: str):
     ctx_two = Context({"key": wildcard})
 
     assert ctx_two in ctx
-
 
 @pytest.mark.parametrize(
     "pattern, target, expected",
