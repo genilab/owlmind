@@ -1,7 +1,0 @@
-#
-# Requirements for Owlmind
-
-discord==2.3.2
-python-dotenv==1.0.1
-requests>=2.28.0
-audioop-lts; python_version>='3.13'
