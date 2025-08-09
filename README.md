@@ -8,5 +8,3 @@ The OwlMind Framework is being developed by The Generative Intelligence Lab at F
 
 ### (work in progress) 
 
-### v2 To Be Released Soon
-
