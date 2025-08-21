@@ -4,7 +4,7 @@
 
 # OwlMind v2
 
-The OwlMind Framework is being developed by The Generative Intelligence Lab at Florida Atlantic University to support education and experimentation with Generative AI, Hybrid Intelligence, and Collective Intelligence.
+The OwlMind Framework is being developed by The Generative Intelligence Lab to support education and experimentation with Generative Intelligence Systems, AI-Driven Organizations and and Collective Intelligence.
 
 ### (work in progress) 
 
