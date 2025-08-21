@@ -6,7 +6,7 @@
 
 The OwlMind Framework is being developed by The Generative Intelligence Lab to support education and experimentation with Generative Intelligence Systems, AI-Driven Organizations and and Collective Intelligence.
 
-* [Wiki](https://github.com/genilab/owlmind/wiki)
+* [WIKI Pages](https://github.com/genilab/owlmind/wiki)
 * [Concepts and Implementation](https://github.com/genilab/owlmind/wiki/Concepts)
 * [Getting Started](https://github.com/genilab/owlmind/wiki/Getting-Started)
 * [Developing](https://github.com/genilab/owlmind/wiki/Developing)
