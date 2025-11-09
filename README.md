@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/genilab/owlmind/wiki/images/owlmind-banner.png" width=800>
+<img src="https://generativeintelligencelab.ai/images/owlmind-banner.png" width=800>
 
 # OwlMind v2
 
