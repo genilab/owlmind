@@ -28,8 +28,8 @@ pip install owlmind
 
 ## Commands
 
-**Configuration:** -- Control OwlMind via environment variables
-
+#### Configuration 
+Control OwlMind via environment variables
 
 ```bash
 # OLLAMA_HOST -- URL of the Ollama server
@@ -40,10 +40,38 @@ export OLLAMA_MODEL=llama3
 ```
 
 
-**System Audit:** -- View your current environment configuration
+#### System Audit
+View your current environment configuration
 
 ```bash
 owlmind info
 ```
 
+#### Connectivity Check 
+Verify if your model provider is online.
+
+```bash
+owlmind ping
+```
+
+
+#### Generation
+Run inference with full control over sampling parameters.
+
+```bash
+owlmind query "How do AI-driven organizations scale?" --temp 1.2 --ctx-size 4096
+```
+
+#### Prompt Loading (@file syntax)
+OwlMind supports loading prompts directly from files using the @ prefix. This is ideal for long-form instructions or code analysis.
+
+```bash
+owlmind query @my_prompt.txt
+```
+
+Explicit Flag:
+
+```bash
+owlmind query --input research_paper.md
+```
 
