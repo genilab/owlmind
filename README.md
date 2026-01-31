@@ -16,17 +16,13 @@
 
 ## Overview
 
-The OwlMind Platform is a foundational experimentation environment engineered by The Generative Intelligence Lab. It serves as a pedagogical sandbox where students and researchers can interrogate the mechanics of Generative Intelligence. By implementing a standardized CLI over a provider-agnostic abstraction layer, OwlMind enables learners to conduct comparative analyses of LLM behaviors through interchangeable parameters within a controlled, observable setup
+The OwlMind Platform provides an experimentation environment and pedagogical sandbox for studying generative intelligence systems. It defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables controlled comparison of large language model behavior, AI pipelines, and component-level configurations.
 
-Installation:
+#### Installation:
 
 ```bash
 pip install owlmind
 ```
-
----
-
-## Commands
 
 #### Configuration 
 Control OwlMind via environment variables
@@ -39,30 +35,28 @@ export OLLAMA_HOST=http://localhost:11434
 export OLLAMA_MODEL=llama3
 ```
 
-
-#### System Audit
+#### Information
 View your current environment configuration
 
 ```bash
 owlmind info
 ```
 
-#### Connectivity Check 
+#### Connectivity 
 Verify if your model provider is online.
 
 ```bash
 owlmind ping
 ```
 
-
-#### Generation
+#### Generation with Parameters
 Run inference with full control over sampling parameters.
 
 ```bash
 owlmind query "How do AI-driven organizations scale?" --temp 1.2 --ctx-size 4096
 ```
 
-Possible parameters:
+Other parameters:
 
 ```bash
 $ owlmind query --help
@@ -86,7 +80,7 @@ options:
 ```
 
 
-#### Prompt Loading (@file syntax)
+#### Prompt Loading
 OwlMind supports loading prompts directly from files using the @ prefix. This is ideal for long-form instructions or code analysis.
 
 ```bash
@@ -98,4 +92,5 @@ Explicit Flag:
 ```bash
 owlmind query --input research_paper.md
 ```
+
 
