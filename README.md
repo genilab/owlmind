@@ -16,7 +16,7 @@
 
 ## Overview
 
-The OwlMind Platform provides an experimentation environment and pedagogical sandbox for studying generative intelligence systems. It defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables controlled comparison of large language model behavior, AI pipelines, and component-level configurations.
+The OwlMind Platform provides an experimentation environment and pedagogical sandbox for studying [Generative Intelligence Systems](https://medium.com/lecture-notes-on-generative-intelligence/generative-intelligence-systems-5b23727acffe). The framework defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables comparative experiments around the behaviours of LLMS, AI pipelines, and component-level configurations.
 
 #### Installation:
 
