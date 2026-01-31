@@ -62,6 +62,30 @@ Run inference with full control over sampling parameters.
 owlmind query "How do AI-driven organizations scale?" --temp 1.2 --ctx-size 4096
 ```
 
+Possible parameters:
+
+```bash
+$ owlmind query --help
+usage: owlmind query [-h] [--input INPUT_FILE] [--model MODEL] [--temp TEMPERATURE] [--top-k TOP_K]
+                     [--top-p TOP_P] [--max-tokens MAX_TOKENS] [--ctx-size NUM_CTX]
+                     [prompt]
+
+positional arguments:
+  prompt                Prompt text or @filename
+
+options:
+  -h, --help            show this help message and exit
+  --input, -i INPUT_FILE
+                        Explicit path to a prompt file
+  --model, -m MODEL
+  --temp, -t TEMPERATURE
+  --top-k, -k TOP_K
+  --top-p, -p TOP_P
+  --max-tokens, -n MAX_TOKENS
+  --ctx-size, -c NUM_CTX
+```
+
+
 #### Prompt Loading (@file syntax)
 OwlMind supports loading prompts directly from files using the @ prefix. This is ideal for long-form instructions or code analysis.
 
