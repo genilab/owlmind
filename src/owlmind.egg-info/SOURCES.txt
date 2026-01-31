@@ -1,3 +1,4 @@
+LICENSE.txt
 README.md
 pyproject.toml
 src/owlmind/__init__.py

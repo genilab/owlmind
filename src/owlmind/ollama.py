@@ -1,6 +1,6 @@
 
 import ollama
-from .model import Model
+from .core.component import Model
 
 class Ollama(Model):
     """

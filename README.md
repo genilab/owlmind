@@ -35,18 +35,19 @@ export OLLAMA_HOST=http://localhost:11434
 export OLLAMA_MODEL=llama3
 ```
 
-#### Information
-View your current environment configuration
-
-```bash
-owlmind info
-```
-
 #### Connectivity 
 Verify if your model provider is online.
 
 ```bash
 owlmind ping
+```
+
+
+#### Information
+View your environment information.
+
+```bash
+owlmind info
 ```
 
 #### Generation with Parameters

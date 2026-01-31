@@ -1,20 +1,33 @@
+# =================================================================
+# Project Configuration (for OwlMind)
+# =================================================================
+
 [build-system]
-requires = ["setuptools>=61.0"]
+# Standard build requirements for modern Python packaging
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "owlmind"
 version = "0.1.3"
-description = "experimentation environment and pedagogical sandbox for studying generative intelligence systems."
+description = "Experimentation environment and pedagogical sandbox for studying generative intelligence systems."
 readme = "README.md"
 requires-python = ">=3.8"
+license = {text = "MIT"} # Recommended to include a license type
+
+# Project dependencies (automatically installed by pip)
 dependencies = [
     "ollama",
 ]
 
 [project.scripts]
+# Maps the 'owlmind' terminal command to the main() function in cli.py
 owlmind = "owlmind.cli:main"
 
 [tool.setuptools.packages.find]
+# Tell setuptools to look inside the 'src' # folder to find the package code.
 where = ["src"]
 
+[tool.setuptools.package-data]
+# Include auxiliary files in PyPI build.
+"*" = ["*.txt", "*.json", "*.md"]
