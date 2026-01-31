@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "owlmind"
+version = "0.1.2"
+description = "A modular CLI for local Ollama control"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "ollama",
+]
+
+[project.scripts]
+owlmind = "owlmind.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

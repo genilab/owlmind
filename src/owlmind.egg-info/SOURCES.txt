@@ -1,0 +1,11 @@
+pyproject.toml
+src/owlmind/__init__.py
+src/owlmind/cli.py
+src/owlmind/model.py
+src/owlmind/ollama.py
+src/owlmind.egg-info/PKG-INFO
+src/owlmind.egg-info/SOURCES.txt
+src/owlmind.egg-info/dependency_links.txt
+src/owlmind.egg-info/entry_points.txt
+src/owlmind.egg-info/requires.txt
+src/owlmind.egg-info/top_level.txt
