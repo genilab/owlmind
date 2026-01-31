@@ -12,9 +12,26 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </div>
 
+---
+
+## Overview
+
 The OwlMind Platform is a foundational experimentation environment engineered by The Generative Intelligence Lab. It serves as a pedagogical sandbox where students and researchers can interrogate the mechanics of Generative Intelligence. By implementing a standardized CLI over a provider-agnostic abstraction layer, OwlMind enables learners to conduct comparative analyses of LLM behaviors through interchangeable parameters within a controlled, observable setup
 
+Installation:
+
+```bash
+pip install owlmind
+```
 
 ---
+
+## Commands
+
+##System Audit:## -- View your current environment configuration
+
+```bash
+owlmind info
+```
 
 
