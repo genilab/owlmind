@@ -28,7 +28,19 @@ pip install owlmind
 
 ## Commands
 
-##System Audit:## -- View your current environment configuration
+**Configuration:** -- Control OwlMind via environment variables
+
+
+```bash
+# OLLAMA_HOST -- URL of the Ollama server
+export OLLAMA_HOST=http://localhost:11434
+
+# OLLAMA_MODEL -- Default model for queries	llama3
+export OLLAMA_MODEL=llama3
+```
+
+
+**System Audit:** -- View your current environment configuration
 
 ```bash
 owlmind info
