@@ -1,6 +1,6 @@
 
 <center>
-<img src="https://generativeintelligencelab.ai/images/owlmind-icon-bw.png" width=400>
+<img src="https://generativeintelligencelab.ai/images/owlmind-icon-bw.png" height=100>
 </center>
 <br/>
 <div align="left">
