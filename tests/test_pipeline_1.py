@@ -46,18 +46,18 @@ if __name__ == "__main__":
     ####
     print("\nExperiment 2: Node Framework Tests")
 
-    # Test 2.1: Initialization via Session Dict vs Kwargs
+    # Test 2.1: Initialization via context Dict vs Kwargs
     # Verify that both sources merge correctly into public attributes
-    node_init = ExperimentNode(session={"a": 1}, b=2)
+    node_init = ExperimentNode(context={"a": 1}, b=2)
     assert node_init.a == 1 and node_init.b == 2
-    print("  2.1: Session/Kwargs merging verified.")
+    print("  2.1: context/Kwargs merging verified.")
 
     # Test 2.2: The Obfuscation Typo Fix
     # Verify self._obfuscate_ (with trailing underscore) works correctly
     node_obf = ExperimentNode(secret="shhh", public="hello")
     node_obf.obfuscate("secret")
-    assert "secret" not in node_obf.session()
-    assert "public" in node_obf.session()
+    assert "secret" not in node_obf.context()
+    assert "public" in node_obf.context()
     print("  2.2: Obfuscation (_) registry verified.")
 
     # Test 2.3: Conditional Parameter Mapping
@@ -65,21 +65,21 @@ if __name__ == "__main__":
     node_slim = ExperimentNode(user="minimalist")
     assert not hasattr(node_slim, '_condition_')
     assert not hasattr(node_slim, '_weight_')
-    assert "user" in node_slim.session()
+    assert "user" in node_slim.context()
     print("  2.3: Conditional attribute mapping verified.")
 
     # Test 2.4: Protection against Overwrites
-    # Verify that leading underscore protects framework logic from session() export
+    # Verify that leading underscore protects framework logic from context() export
     # even if a user tries to inject a similarly named variable.
     node_prot = ExperimentNode(_test_internal_="hidden", normal="visible")
-    assert "_test_internal_" not in node_prot.session()
-    assert "normal" in node_prot.session()
-    print("  2.4: Leading underscore session filter verified.")
+    assert "_test_internal_" not in node_prot.context()
+    assert "normal" in node_prot.context()
+    print("  2.4: Leading underscore context filter verified.")
 
     # Test 2.5: String Representation (__repr__)
-    # Verify __repr__ returns the session string
+    # Verify __repr__ returns the context string
     node_repr = ExperimentNode(role="agent")
-    expected_repr = str(node_repr.session())
+    expected_repr = str(node_repr.context())
     assert repr(node_repr) == expected_repr
     print("  2.5: Node representation (repr) verified.")
     print("✅ Node Framework Tests")
