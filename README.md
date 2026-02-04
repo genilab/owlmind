@@ -51,7 +51,7 @@ OwlMind automatically loads .env files from the working directory.
 # .env files are loaded automatically 
 
 OLLAMA_HOST=http://localhost:11434
-OLLAMA_MODEL=llama
+OLLAMA_MODEL=llama3
 ```
 
 
