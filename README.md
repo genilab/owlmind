@@ -1,10 +1,8 @@
 
-<!---
-<img src="https://generativeintelligencelab.ai/images/owlmind-banner.png" width=800>
---->
-
-# OwlMind
-
+<center>
+<img src="https://generativeintelligencelab.ai/images/owlmind-icon-bw.png" width=400>
+</center>
+<br/>
 <div align="left">
   <img src="https://img.shields.io/badge/Generative_AI-Lab-blueviolet?style=for-the-badge&logo=openai&logoColor=white" alt="Generative AI" />
   <img src="https://img.shields.io/badge/Ollama-Supported-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
