@@ -16,7 +16,7 @@
 
 ## Overview
 
-The OwlMind Framework provides an experimentation environment and pedagogical sandbox for [Generative Intelligence Systems](https://medium.com/lecture-notes-on-generative-intelligence/generative-intelligence-systems-5b23727acffe). The plaform defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables comparative experiments around the behaviours of LLMS, AI pipelines, and component-level configurations.
+The OwlMind Framework provides an experimentation environment and pedagogical sandbox for [Generative Intelligence Systems](https://medium.com/lecture-notes-on-generative-intelligence/generative-intelligence-systems-5b23727acffe). The platform defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables comparative experiments around the behaviors of Large Language Models (LLMs), AI pipelines, and component-level configurations.
 
 #### Installation:
 
@@ -24,8 +24,16 @@ The OwlMind Framework provides an experimentation environment and pedagogical sa
 pip install owlmind
 ```
 
+Verify the installation:
+
+```bash
+owlmind --version
+```
+
+
 #### Configuration 
-Control OwlMind via environment variables
+
+OwlMind can be configured using environment variables.
 
 ```bash
 # OLLAMA_HOST -- URL of the Ollama server
@@ -35,63 +43,153 @@ export OLLAMA_HOST=http://localhost:11434
 export OLLAMA_MODEL=llama3
 ```
 
-#### Connectivity 
-Verify if your model provider is online.
+OwlMind automatically loads .env files from the working directory.
+
+```bash
+# File: .env
+# .env files are loaded automatically 
+
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=llama
+```
+
+
+#### Command-Line Interface
+
+```
+owlmind
+usage: owlmind [-h] [--version] [--debug] [--url URL] {ping,info,query} ...
+owlmind: error: the following arguments are required: command
+```
+
+You can access help at any level using --help (or -h):
+
+```
+owlmind --help
+```
+
+```
+owlmind query --help
+```
+
+
+
+#### Connectivity Check 
+
+Verify that your model provider is reachable.
 
 ```bash
 owlmind ping
 ```
 
+Expected output:
+```bash
+Status: ONLINE (Host: http://localhost:11434)
+```
 
-#### Information
-View your environment information.
+#### Environment & Capability Information
+
+Inspect your runtime environment, available models, and supported parameters.
 
 ```bash
 owlmind info
 ```
 
-#### Generation with Parameters
-Run inference with full control over sampling parameters.
+Example output:
 
 ```bash
-owlmind query "How do AI-driven organizations scale?" --temp 1.2 --ctx-size 4096
+----------------------------------------
+Status  : online
+Host    : http://minipc:11434
+Model   : llama3
+----------------------------------------
+Available Models: 5
+  - gpt-oss:latest
+  - gemma:latest
+  - tinyllama:latest
+  - llama3:latest
+  - llama3.2:latest
+----------------------------------------
+Accepted Parameters (9):
+  - temperature
+  - top_p
+  - seed
+  - num_ctx
+  - num_predict
+  - repeat_penalty
+  - top_k
+  - stop
+  - system
+----------------------------------------
 ```
 
-Other parameters:
+#### Simple Query
+
+Runs a single inference using the default model and prints the response.
 
 ```bash
-$ owlmind query --help
-usage: owlmind query [-h] [--input INPUT_FILE] [--model MODEL] [--temp TEMPERATURE] [--top-k TOP_K]
-                     [--top-p TOP_P] [--max-tokens MAX_TOKENS] [--ctx-size NUM_CTX]
-                     [prompt]
-
-positional arguments:
-  prompt                Prompt text or @filename
-
-options:
-  -h, --help            show this help message and exit
-  --input, -i INPUT_FILE
-                        Explicit path to a prompt file
-  --model, -m MODEL
-  --temp, -t TEMPERATURE
-  --top-k, -k TOP_K
-  --top-p, -p TOP_P
-  --max-tokens, -n MAX_TOKENS
-  --ctx-size, -c NUM_CTX
+owlmind query "How do AI-driven organizations scale?" 
 ```
+
+
+#### Activating Debug 
+
+Runs the query with debug-level logging enabled for internal execution visibility.
+
+```bash
+owlmind --debug query "How do AI-driven organizations scale?"
+```
+
+
+#### Working with Querying Parameters
+
+Override inference parameters while keeping the default model.
+
+```bash
+owlmind query "How do AI-driven organizations scale?" -p temperature=1.2,num_ctx=4096
+```
+
+Parameters can also be provided incrementally:
+
+```bash
+owlmind query "Explain transformers" \
+  -p temperature=0.8 \
+  -p num_ctx=4096
+```
+
+To see the full list of supported parameters, run:
+
+```bash
+owlmind info
+```
+
+#### Querying Different Models
+
+Run a query using a specific model and custom parameters.
+
+```bash
+owlmind query "How do AI-driven organizations scale?" \
+  -m gpt-oss \
+  -p temperature=1.2,num_ctx=4096
+```
+This allows rapid comparison between models without changing code.
 
 
 #### Prompt Loading
-OwlMind supports loading prompts directly from files using the @ prefix. This is ideal for long-form instructions or code analysis.
+
+OwlMind supports loading prompts directly from files.
+
+##### Using the @ prefix
 
 ```bash
 owlmind query @my_prompt.txt
 ```
 
-Explicit Flag:
+##### Using an explicit input flag
 
 ```bash
 owlmind query --input research_paper.md
 ```
+
 
 

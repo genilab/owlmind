@@ -1,12 +1,14 @@
 Metadata-Version: 2.4
 Name: owlmind
-Version: 0.1.3
+Version: 0.1.11
 Summary: Experimentation environment and pedagogical sandbox for studying generative intelligence systems.
+Author-email: Fernando Koch <your-email@example.com>
 License: MIT
-Requires-Python: >=3.8
+Requires-Python: >=3.10
 Description-Content-Type: text/markdown
 License-File: LICENSE.txt
-Requires-Dist: ollama
+Requires-Dist: ollama>=0.4.0
+Requires-Dist: python-dotenv>=1.0.0
 Dynamic: license-file
 
 
@@ -27,13 +29,20 @@ Dynamic: license-file
 
 ## Overview
 
-The OwlMind Platform provides an experimentation environment and pedagogical sandbox for studying [Generative Intelligence Systems](https://medium.com/lecture-notes-on-generative-intelligence/generative-intelligence-systems-5b23727acffe). The framework defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables comparative experiments around the behaviours of LLMS, AI pipelines, and component-level configurations.
+The OwlMind Framework provides an experimentation environment and pedagogical sandbox for [Generative Intelligence Systems](https://medium.com/lecture-notes-on-generative-intelligence/generative-intelligence-systems-5b23727acffe). The platform defines a standardized programming structure and command-line interface across multiple architectural layers. This structure enables comparative experiments around the behaviors of Large Language Models (LLMs), AI pipelines, and component-level configurations.
 
 #### Installation:
 
 ```bash
 pip install owlmind
 ```
+
+If the installation goes well, you should be able to run the script:
+
+```bash
+owlmind --version
+```
+
 
 #### Configuration 
 Control OwlMind via environment variables
@@ -46,12 +55,16 @@ export OLLAMA_HOST=http://localhost:11434
 export OLLAMA_MODEL=llama3
 ```
 
-#### Information
-View your current environment configuration
+A good alternative is to create a ``.env`` file.
 
 ```bash
-owlmind info
+# File: .env
+# .env files are loaded automatically 
+
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=llama
 ```
+
 
 #### Connectivity 
 Verify if your model provider is online.
@@ -60,11 +73,41 @@ Verify if your model provider is online.
 owlmind ping
 ```
 
+It should  return:
+```bash
+Status: ONLINE (Host: http://localhost:11434)
+```
+
+#### Information
+View your environment information.
+
+```bash
+owlmind info
+```
+
+It should return something like:
+
+```bash
+$ owlmind info
+----------------------------------------
+Status  : online
+Host    : http://localhost:11434
+Model   : llama3
+----------------------------------------
+Available Models: 5
+  - gpt-oss:latest
+  - gemma:latest
+  - tinyllama:latest
+  - llama3:latest
+  - llama3.2:latest
+----------------------------------------
+```
+
 #### Generation with Parameters
 Run inference with full control over sampling parameters.
 
 ```bash
-owlmind query "How do AI-driven organizations scale?" --temp 1.2 --ctx-size 4096
+owlmind query "How do AI-driven organizations scale?" -p temperature=1.2, ctx-size=4096
 ```
 
 Other parameters:
